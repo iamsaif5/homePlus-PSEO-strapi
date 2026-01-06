@@ -39,6 +39,18 @@
     },
     "company": {
       "type": "string"
+    },
+    "homeplus_article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::homeplus-article.homeplus-article",
+      "inversedBy": "authors"
+    },
+    "tradepilot_article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tradepilot-article.tradepilot-article",
+      "inversedBy": "authors"
     }
   }
 }

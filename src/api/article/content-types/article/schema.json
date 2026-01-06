@@ -61,14 +61,14 @@
     },
     "Site": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "homeplus",
         "truckwys",
         "baselinq",
         "techstyles",
         "tradepilot"
-      ],
-      "required": true
+      ]
     }
   }
 }

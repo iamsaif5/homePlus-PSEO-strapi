@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
@@ -20,6 +21,18 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "mappedBy": "tags"
+    },
+    "homeplus_articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::homeplus-article.homeplus-article",
+      "mappedBy": "tags"
+    },
+    "tradepilot_article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tradepilot-article.tradepilot-article",
+      "inversedBy": "tags"
     }
   }
 }
