@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tradepilot_articles",
+  "info": {
+    "singularName": "tradepilot-article",
+    "pluralName": "tradepilot-articles",
+    "displayName": "tradepilot-article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

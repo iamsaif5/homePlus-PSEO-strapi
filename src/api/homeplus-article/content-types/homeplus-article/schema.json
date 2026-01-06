@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homeplus_articles",
+  "info": {
+    "singularName": "homeplus-article",
+    "pluralName": "homeplus-articles",
+    "displayName": "homeplus-article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
