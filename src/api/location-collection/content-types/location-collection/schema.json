@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location_collections",
+  "info": {
+    "singularName": "location-collection",
+    "pluralName": "location-collections",
+    "displayName": "Location Collection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "locationId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "population": {
+      "type": "integer"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "postcodePrefixes": {
+      "type": "json"
+    },
+    "characteristics": {
+      "type": "json"
+    },
+    "localFacts": {
+      "type": "json"
+    }
+  }
+}

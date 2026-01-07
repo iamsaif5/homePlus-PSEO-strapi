@@ -37,7 +37,7 @@
       "target": "api::author.author",
       "mappedBy": "homeplus_article"
     },
-    "blocks": {
+    "content": {
       "type": "dynamiczone",
       "components": [
         "shared.quote",
@@ -50,6 +50,47 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "homeplus_articles"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "aiDisclosure": {
+      "type": "text"
+    },
+    "generationId": {
+      "type": "string"
+    },
+    "qualityScore": {
+      "type": "integer"
+    },
+    "totalWordCount": {
+      "type": "integer"
+    },
+    "localDataPoints": {
+      "type": "json"
+    },
+    "statistics": {
+      "type": "json"
+    },
+    "faqs": {
+      "type": "json"
+    },
+    "internalLinks": {
+      "type": "json"
+    },
+    "publishStatus": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "review",
+        "published"
+      ]
     }
   }
 }

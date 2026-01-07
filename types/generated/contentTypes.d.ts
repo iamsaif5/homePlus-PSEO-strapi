@@ -619,8 +619,9 @@ export interface ApiHomeplusArticleHomeplusArticle
     draftAndPublish: true;
   };
   attributes: {
+    aiDisclosure: Schema.Attribute.Text;
     authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
-    blocks: Schema.Attribute.DynamicZone<
+    content: Schema.Attribute.DynamicZone<
       ['shared.quote', 'shared.rich-text', 'shared.media']
     >;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -628,16 +629,66 @@ export interface ApiHomeplusArticleHomeplusArticle
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    excerpt: Schema.Attribute.Text;
+    faqs: Schema.Attribute.JSON;
+    generationId: Schema.Attribute.String;
+    internalLinks: Schema.Attribute.JSON;
+    localDataPoints: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homeplus-article.homeplus-article'
     > &
       Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    publishStatus: Schema.Attribute.Enumeration<
+      ['draft', 'review', 'published']
+    >;
+    qualityScore: Schema.Attribute.Integer;
     slug: Schema.Attribute.UID<'title'>;
+    statistics: Schema.Attribute.JSON;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String;
+    totalWordCount: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLocationCollectionLocationCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'location_collections';
+  info: {
+    displayName: 'Location Collection';
+    pluralName: 'location-collections';
+    singularName: 'location-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    characteristics: Schema.Attribute.JSON;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localFacts: Schema.Attribute.JSON;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location-collection.location-collection'
+    > &
+      Schema.Attribute.Private;
+    locationId: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    population: Schema.Attribute.Integer;
+    postcodePrefixes: Schema.Attribute.JSON;
+    priority: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -673,6 +724,45 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::tradepilot-article.tradepilot-article'
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTradeCollectionTradeCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'trade_collections';
+  info: {
+    displayName: 'Trade collection';
+    pluralName: 'trade-collections';
+    singularName: 'trade-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    certifications: Schema.Attribute.JSON;
+    commonIssues: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trade-collection.trade-collection'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    pluralName: Schema.Attribute.String;
+    priority: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    regulations: Schema.Attribute.JSON;
+    searchTerms: Schema.Attribute.JSON;
+    seasonalDemand: Schema.Attribute.JSON;
+    services: Schema.Attribute.JSON;
+    tradeId: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1232,7 +1322,9 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::homeplus-article.homeplus-article': ApiHomeplusArticleHomeplusArticle;
+      'api::location-collection.location-collection': ApiLocationCollectionLocationCollection;
       'api::tag.tag': ApiTagTag;
+      'api::trade-collection.trade-collection': ApiTradeCollectionTradeCollection;
       'api::tradepilot-article.tradepilot-article': ApiTradepilotArticleTradepilotArticle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

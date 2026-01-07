@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trade_collections",
+  "info": {
+    "singularName": "trade-collection",
+    "pluralName": "trade-collections",
+    "displayName": "Trade collection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tradeId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pluralName": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "searchTerms": {
+      "type": "json"
+    },
+    "certifications": {
+      "type": "json"
+    },
+    "regulations": {
+      "type": "json"
+    },
+    "services": {
+      "type": "json"
+    },
+    "commonIssues": {
+      "type": "json"
+    },
+    "seasonalDemand": {
+      "type": "json"
+    }
+  }
+}
