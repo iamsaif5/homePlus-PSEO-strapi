@@ -620,6 +620,7 @@ export interface ApiHomeplusArticleHomeplusArticle
   };
   attributes: {
     aiDisclosure: Schema.Attribute.Text;
+    archetype: Schema.Attribute.String;
     authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
     content: Schema.Attribute.DynamicZone<
       ['shared.quote', 'shared.rich-text', 'shared.media']
@@ -640,6 +641,10 @@ export interface ApiHomeplusArticleHomeplusArticle
       'api::homeplus-article.homeplus-article'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::location-collection.location-collection'
+    >;
     metaDescription: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -652,6 +657,10 @@ export interface ApiHomeplusArticleHomeplusArticle
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String;
     totalWordCount: Schema.Attribute.Integer;
+    trade: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::trade-collection.trade-collection'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -675,6 +684,10 @@ export interface ApiLocationCollectionLocationCollection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    homeplus_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homeplus-article.homeplus-article'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localFacts: Schema.Attribute.JSON;
     localizations: Schema.Attribute.Relation<
@@ -748,6 +761,10 @@ export interface ApiTradeCollectionTradeCollection
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    homeplus_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homeplus-article.homeplus-article'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
