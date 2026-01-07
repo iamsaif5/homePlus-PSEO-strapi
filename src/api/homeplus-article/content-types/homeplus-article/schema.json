@@ -92,18 +92,6 @@
         "published"
       ]
     },
-    "trade": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::trade-collection.trade-collection",
-      "inversedBy": "homeplus_articles"
-    },
-    "location": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::location-collection.location-collection",
-      "inversedBy": "homeplus_articles"
-    },
     "archetype": {
       "type": "string"
     }

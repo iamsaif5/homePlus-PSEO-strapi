@@ -16,12 +16,6 @@
       "type": "string",
       "unique": true
     },
-    "articles": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::article.article",
-      "mappedBy": "tags"
-    },
     "homeplus_articles": {
       "type": "relation",
       "relation": "manyToMany",

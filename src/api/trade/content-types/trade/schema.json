@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "trade_collections",
+  "collectionName": "trades",
   "info": {
-    "singularName": "trade-collection",
-    "pluralName": "trade-collections",
-    "displayName": "trades"
+    "singularName": "trade",
+    "pluralName": "trades",
+    "displayName": "trade"
   },
   "options": {
     "draftAndPublish": true
@@ -43,6 +43,12 @@
     },
     "seasonalDemand": {
       "type": "json"
+    },
+    "homeplus_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::homeplus-article.homeplus-article",
+      "mappedBy": "trade"
     }
   }
 }
