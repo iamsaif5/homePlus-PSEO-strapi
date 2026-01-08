@@ -656,6 +656,10 @@ export interface ApiLocationCollectionLocationCollection
     priority: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.String;
+    tradepilot_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tradepilot-article.tradepilot-article'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -733,6 +737,10 @@ export interface ApiTradeCollectionTradeCollection
     seasonalDemand: Schema.Attribute.JSON;
     services: Schema.Attribute.JSON;
     tradeId: Schema.Attribute.String;
+    tradepilot_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tradepilot-article.tradepilot-article'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -751,25 +759,46 @@ export interface ApiTradepilotArticleTradepilotArticle
     draftAndPublish: true;
   };
   attributes: {
+    aiDisclosure: Schema.Attribute.Text;
+    archetype: Schema.Attribute.String;
     authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.slider', 'shared.rich-text', 'shared.quote', 'shared.media']
-    >;
+    content: Schema.Attribute.Blocks;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    excerpt: Schema.Attribute.Text;
+    faqs: Schema.Attribute.JSON;
+    generationId: Schema.Attribute.String;
+    internalLinks: Schema.Attribute.JSON;
+    localDataPoints: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::tradepilot-article.tradepilot-article'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::location-collection.location-collection'
+    >;
+    metaDescription: Schema.Attribute.Text;
+    metaTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    publishStatus: Schema.Attribute.Enumeration<
+      ['draft', 'review', 'published']
+    >;
+    qualityScore: Schema.Attribute.Integer;
     slug: Schema.Attribute.UID<'title'>;
+    statistics: Schema.Attribute.JSON;
     tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String;
+    totalWordCount: Schema.Attribute.Integer;
+    trade: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::trade-collection.trade-collection'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -37,20 +37,70 @@
       "target": "api::author.author",
       "mappedBy": "tradepilot_article"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.slider",
-        "shared.rich-text",
-        "shared.quote",
-        "shared.media"
-      ]
-    },
     "tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag",
       "mappedBy": "tradepilot_article"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "aiDisclosure": {
+      "type": "text"
+    },
+    "generationId": {
+      "type": "string"
+    },
+    "qualityScore": {
+      "type": "integer"
+    },
+    "totalWordCount": {
+      "type": "integer"
+    },
+    "localDataPoints": {
+      "type": "json"
+    },
+    "statistics": {
+      "type": "json"
+    },
+    "faqs": {
+      "type": "json"
+    },
+    "internalLinks": {
+      "type": "json"
+    },
+    "publishStatus": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "review",
+        "published"
+      ]
+    },
+    "archetype": {
+      "type": "string"
+    },
+    "trade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trade-collection.trade-collection",
+      "inversedBy": "tradepilot_articles"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location-collection.location-collection",
+      "inversedBy": "tradepilot_articles"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }

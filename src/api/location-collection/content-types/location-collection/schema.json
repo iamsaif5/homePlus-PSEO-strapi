@@ -43,6 +43,12 @@
       "relation": "oneToMany",
       "target": "api::homeplus-article.homeplus-article",
       "mappedBy": "location"
+    },
+    "tradepilot_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tradepilot-article.tradepilot-article",
+      "mappedBy": "location"
     }
   }
 }
