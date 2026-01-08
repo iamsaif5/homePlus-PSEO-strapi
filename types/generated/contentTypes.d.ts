@@ -578,9 +578,7 @@ export interface ApiHomeplusArticleHomeplusArticle
     aiDisclosure: Schema.Attribute.Text;
     archetype: Schema.Attribute.String;
     authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
-    content: Schema.Attribute.DynamicZone<
-      ['shared.quote', 'shared.rich-text', 'shared.media']
-    >;
+    content: Schema.Attribute.Blocks;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

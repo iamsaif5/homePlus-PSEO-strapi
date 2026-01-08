@@ -37,14 +37,6 @@
       "target": "api::author.author",
       "mappedBy": "homeplus_article"
     },
-    "content": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.quote",
-        "shared.rich-text",
-        "shared.media"
-      ]
-    },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
@@ -106,6 +98,9 @@
       "relation": "manyToOne",
       "target": "api::location-collection.location-collection",
       "inversedBy": "homeplus_articles"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }
