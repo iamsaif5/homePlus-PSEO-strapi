@@ -37,6 +37,12 @@
     },
     "localFacts": {
       "type": "json"
+    },
+    "homeplus_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::homeplus-article.homeplus-article",
+      "mappedBy": "location"
     }
   }
 }
